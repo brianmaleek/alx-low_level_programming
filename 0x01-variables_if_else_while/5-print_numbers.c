@@ -12,7 +12,7 @@ int main(void)
 	/*print numbers base of 10 starting from 0*/
 	for (number = 0; number < 10; number++)
 	{
-		printf("%d", number)
+		printf("%d", number);
 	}
 	printf('\n');
 	return (0);
