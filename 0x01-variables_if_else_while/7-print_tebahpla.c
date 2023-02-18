@@ -10,7 +10,7 @@ int main(void)
 {
 	char letter;
 	/*print lowercase letters in reverse*/
-	for (letter = 'z'; letter <= 'a'; letter--)
+	for (letter = 'z'; letter >= 'a'; letter--)
 	{
 		putchar(letter);
 	}
