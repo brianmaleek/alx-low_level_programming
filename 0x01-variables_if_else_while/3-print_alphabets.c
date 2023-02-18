@@ -14,7 +14,6 @@ int main(void)
 	{
 		putchar(letter);
 	}
-	putchar('\n');
 	/*print uppercase letters*/
 	for (letter = 'A'; letter <= 'Z'; letter++)
 	{
