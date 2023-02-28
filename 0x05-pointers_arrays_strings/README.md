@@ -58,37 +58,3 @@ C - Pointers, arrays and strings.
 	11.1. You don’t have to pass the betty-style tests (you still need to pass the betty-doc tests)
 	11.2. man srand, rand, time
 	11.3. gdb and objdump can help
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
