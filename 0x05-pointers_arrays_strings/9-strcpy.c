@@ -1,20 +1,19 @@
 #include "main.h"
+#include "2-strlen.c"
 
 /**
  * _strcpy - this fuction copy the pointer to variable.
  * @src: is the pointer is the origin.
  * @dest: is the pointer is the destiny.
- * Return: A pointer to the destination string @dest.
+ * Return: a character value.
  */
 char *_strcpy(char *dest, char *src)
 {
-	int index = 0;
+	int i;
 
-	while (src[index])
+	for (i = 0; i <= _strlen(src); i++)
 	{
-		dest[index] = src[index];
-		index++;
+		dest[i] = src[i];
 	}
-
 	return (dest);
 }
