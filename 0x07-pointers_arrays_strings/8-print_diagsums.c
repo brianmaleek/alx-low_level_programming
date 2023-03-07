@@ -17,13 +17,11 @@ void print_diagsums(int *a, int size)
 		i = (row * size) + row;
 		diagonal_sum_1 += a[i];
 	}
-	for (i = 0; i < size; i++)
+	for (row = 1; row <= size; row++)
 	{
-		diagonal_sum_1 += *(a + (i * size) + i);
-		/* add diagonal element from top left to bottom right*/
-		diagonal_sum_2 += *(a + (i * size) + (size - 1 - i));
-		/* add diagonal element from top right to bottom left*/
+		i = (row * size) - row;
+		diagonal_sum_2 += a[i];
 	}
-	printf("Sum of diagonal 1: %d\n", diagonal_sum_1);
-	printf("Sum of diagonal 2: %d\n", diagonal_sum_2);
+
+	printf("%d, %d\n", diagonal_sum_1, diagonal_sum_2);
 }
