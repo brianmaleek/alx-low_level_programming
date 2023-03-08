@@ -1,37 +1,36 @@
 #include "main.h"
 
 /**
- * is_prime_number - states if number is prime
- * @n:int
- * Return:int
+ * is_prime - recursively divide by higher divisor, skip even nums
+ * @n: number to check if prime
+ * @divisor: divisor
+ * Return: 1 if prime, 0 if not, or recursive function call
  */
+
+int is_prime(int n, int divisor)
+{
+	if (n == divisor)
+		return (1);
+	if (n % divisor == 0)
+		return (0);
+	return (is_prime(n, divisor + 1));
+
+}
+
+/**
+ * is_prime_number - check if prime
+ * @n: number to check
+ * Return: 1 if prime, 0 if not
+ */
+
 int is_prime_number(int n)
 {
-	int i;
-	/**
-	 * Check for special cases
-	 * 0 and 1 are not prime numbers
-	 */
-	if (n <= 1)
-	{
+	int divisor = 3;
+
+	if (n % 2 == 0 || n < 2)
 		return (0);
-	}
-	/**
-	 * Check if n is divisible by any integer from 2 to n - 1
-	 */
-	for (i = 2; i * i <= n; i++)
-	{
-		if (n % i == 0)
-		{
-			/*
-			 * n is divisible by i, so it is not a prime number
-			 */
-			return (0);
-		}
-	}
-	return (1);
-	/*
-	 * n is not divisible by any integer from 2 to n - 1, so it is
-	 * a prime number
-	 */
+	if (n == 2)
+		return (1);
+
+	return (is_prime(n, divisor));
 }
