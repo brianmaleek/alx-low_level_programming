@@ -62,7 +62,7 @@ char **strtow(char *str)
 	if (words == 0)
 		return (NULL);
 
-	strings = malloc(sizeof(char *) * (words + 1));
+	strings = (char **) malloc(sizeof(char *) * (words + 1));
 	if (strings == NULL)
 		return (NULL);
 
@@ -73,7 +73,7 @@ char **strtow(char *str)
 
 		letters = word_len(str + index);
 
-		strings[w] = malloc(sizeof(char) * (letters + 1));
+		strings[w] = (char *) malloc(sizeof(char) * (letters + 1));
 
 		if (strings[w] == NULL)
 		{
