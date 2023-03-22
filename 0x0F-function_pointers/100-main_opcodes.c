@@ -10,9 +10,12 @@
 void print_opcodes(unsigned char *ptr, int n)
 {
 	int i;
+
 	for (i = 0; i < n; i++)
 	{
-		printf("%02x ", ptr[i]);
+		printf("%.2hhx", ptr[i]);
+		if (i < n -  1)
+			printf(" ");
 	}
 	printf("\n");
 }
@@ -35,7 +38,6 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		exit (2);
 	}
-	unsigned char *ptr = (unsigned char *) main;
-	print_opcodes(ptr, n);
+	print_opcodes((char *)&main, n);
 	return (0);
 }
