@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "dog.h"
+
+/**
+ * len - find length of string
+ * @str: string input
+ * Return: length of string
+ */
+int len(char *str)
+{
+	int i;
+
+	for (i = 0; str[i]; i++);
+	return (i);
+}
+/**
+ * strcpy - copies string from src to dest,
+ * @dest: copy string to this buffer
+ * @src: this is the source to copy from
+ * Return: copy of original source
+ */
+char *_strcpy(char *dest, char *src)
+{
+	int i;
+
+	for (i = 0; i <= len(src); i++)
+		dest[i] = src[i];
+	return (dest);
+}
+/**
+ * new_dog - create new instance of struct dog
+ * @name: member name created
+ * @age: member age created
+ * @owner: member owner created
+ * Return: initialized instance of struct dog
+ */
+dog_t *new_dog(char *name, float age, char *owner)
+{
+	dog_t *newDog;
+	char *newName, *newOwner;
+
+	newDog = malloc(sizeof(dog_t)); /* validate if dog1 initiated correctly */
+	if (newDog == NULL)
+		return (NULL);
+
+	newDog->age = age;
+
+	/* make copies of struct members and validate, else free on error */
+	/* set values of struct members to copies of arguments or set to NULL */
+	if (name != NULL)
+	{
+		newName = malloc(len(name) + 1);
+		if (newName == NULL)
+		{
+			free(newDog);
+			return (NULL);
+		}
+		newDog->name = strcpy(newName, name);
+	}
+	else
+		newDog->name = NULL;
+
+	if (owner != NULL)
+	{
+		newOwner = malloc(len(owner) + 1);
+		if (newOwner == NULL)
+		{
+			free(newName);
+			free(newDog);
+			return (NULL);
+		}
+		newDog->owner = strcpy(newOwner, owner);
+	}
+	else
+		newDog->owner = NULL;
+
+	return (newDog);
+}
