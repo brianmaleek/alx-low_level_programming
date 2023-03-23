@@ -23,19 +23,17 @@ void print_all(const char * const format, ...)
 		switch (format[index])
 		{
 			case 'c':
-				format_char = va_arg(args, int),
-					    printf("%c", format_char);
+				format_char = va_arg(args, int), printf("%c", format_char);
 				break;
 			case 'i':
 				int_arg = va_arg(args, int), printf("%d", int_arg);
 				break;
 			case 'f':
-				float_arg = (float) va_arg(args, double),
-					  printf("%f", float_arg);
+				float_arg = (float) va_arg(args, double), printf("%f", float_arg);
 				break;
 			case 's':
 				str_arg = va_arg(args, char *),
-				  printf("%s", str_arg != NULL ? str_arg : "(nil)");
+					printf("%s", str_arg != NULL ? str_arg : "(nil)");
 				break;
 			default:
 				index++;
@@ -49,6 +47,6 @@ void print_all(const char * const format, ...)
 		}
 		index++;
 	}
-	printf("\n");
 	va_end(args);
+	printf("\n");
 }
