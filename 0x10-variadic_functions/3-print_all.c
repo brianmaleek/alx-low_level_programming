@@ -44,6 +44,7 @@ void print_all(const char * const format, ...)
 		if (format[index + 1] != '\0')
 		{
 			char *sep = ", ";
+
 			printf("%s", sep);
 		}
 		index++;
