@@ -14,24 +14,24 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	if (*head == NULL)
 		return (-1);
 
+	temp = *head;
 	if (index == 0)
 	{
-		temp = *head;
 		*head = temp->next;
 		free(temp);
 		return (-1);
 	}
+
+	/* iterate to node before deletion of node*/
 	current_node = *head;
-	for (; i < index - 1; i++)
+	for (; i < (index - 1); i++)
 	{
 		if (current_node->next == NULL)
 			return (-1);
 		current_node = current_node->next;
 	}
+	/* temp: node to be deleted*/
 	temp = current_node->next;
-	if (temp == NULL)
-		return (-1);
-
 	current_node->next = temp->next;
 	free(temp);
 	return (1);
