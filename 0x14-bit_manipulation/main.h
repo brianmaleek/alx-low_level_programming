@@ -3,16 +3,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stddef.h>
-#include <string.h>
-#include <stdarg.h>
-
-/**
- * File: main.h
- * Auth: Brian Maleek
- * Desc: Header file contains prototypes for all functions
- *       written in the 0x13-bit-manipulation-directory.
- */
 
 int _putchar(char c);
 unsigned int binary_to_uint(const char *b);
