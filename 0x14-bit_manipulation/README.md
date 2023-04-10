@@ -5,7 +5,7 @@ bitwise operators `>>`, `<<`, `&`, `|`, and `^` in C.
 
 ## Tests
 
-* [tests](./tests): Folder of test files. Provided by Holberton School.
+* [tests](./tests): Folder of test files.
 
 ## Helper File
 
