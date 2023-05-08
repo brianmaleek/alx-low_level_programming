@@ -34,8 +34,8 @@ int create_file(const char *filename, char *text_content)
 
 	if (text_content != NULL)
 	{
-		while (text_content[len_text_content])
-			len_text_content++;
+		for (len_text_content = 0; text_content[len_text_content]; len_text_content++)
+			;
 		bytes_written = write(file_descriptor, text_content, len_text_content);
 		if (bytes_written == -1)
 		{
