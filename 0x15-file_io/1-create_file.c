@@ -1,11 +1,10 @@
 #include "main.h"
 #include <string.h>
 
-#define FILE_PERMS (S_IRUSR | S_IWUSR)
 /**
  * rw------- permissions for the file
  */
-#define BUFFER_SIZE 1024
+#define FILE_PERMS (S_IRUSR | S_IWUSR)
 
 /**
  * create_file - creates a file
@@ -19,8 +18,7 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int file_descriptor = -1;
-	int text_content_length = strlen(text_content);
+	int file_descriptor, len = 0;
 	ssize_t bytes_written;
 
 	if (filename == NULL)
@@ -37,8 +35,9 @@ int create_file(const char *filename, char *text_content)
 
 	if (text_content != NULL)
 	{
-		bytes_written = write(file_descriptor, text_content, text_content_length);
-
+		while (text_content[len])
+			len++;
+		bytes_written = write(file_descriptor, text_content, len);
 		if (bytes_written == -1)
 		{
 			fprintf(stderr, "Error: cannot write file %s\n", filename);
