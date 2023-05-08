@@ -26,10 +26,9 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 	}
 
-	file_descriptor = open(filename, O_WRONLY | O_CREAT | O_TRUNC, FILE_PERMS);
+	file_descriptor = open(filename, O_CREAT | O_WRONLY | O_TRUNC, FILE_PERMS);
 	if (file_descriptor == -1)
 	{
-		fprintf(stderr, "Error: cannot open file %s\n", filename);
 		return (-1);
 	}
 
@@ -40,7 +39,6 @@ int create_file(const char *filename, char *text_content)
 		bytes_written = write(file_descriptor, text_content, len);
 		if (bytes_written == -1)
 		{
-			fprintf(stderr, "Error: cannot write file %s\n", filename);
 			close(file_descriptor);
 			return (-1);
 		}
