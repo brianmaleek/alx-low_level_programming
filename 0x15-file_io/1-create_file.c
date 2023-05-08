@@ -20,6 +20,8 @@
 int create_file(const char *filename, char *text_content)
 {
 	int file_descriptor = -1;
+	int text_content_length = strlen(text_content);
+	ssize_t bytes_written;
 
 	if (filename == NULL)
 	{
@@ -35,7 +37,8 @@ int create_file(const char *filename, char *text_content)
 
 	if (text_content != NULL)
 	{
-		ssize_t bytes_written = write(file_descriptor, text_content, strlen(text_content));
+		bytes_written = write(file_descriptor, text_content, text_content_length);
+
 		if (bytes_written == -1)
 		{
 			fprintf(stderr, "Error: cannot write file %s\n", filename);
