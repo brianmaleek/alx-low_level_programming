@@ -1,6 +1,16 @@
 #include "main.h"
 #include <elf.h>
 
+void check_elf(unsigned char *e_ident);
+void print_magic(const unsigned char *magic);
+void print_class(unsigned char *e_ident);
+void print_data(unsigned char *e_ident);
+void print_version(unsigned char *e_ident);
+void print_abi(unsigned char *e_ident);
+void print_osabi(unsigned char *e_ident);
+void print_type(unsigned int e_type, unsigned char *e_ident);
+void print_entry(unsigned long int e_entry, unsigned char *e_ident);
+
 /**
  * print_error - prints error message and exits with status of 98
  * @message: error message to print
@@ -17,8 +27,10 @@ void print_error(const char *message)
 */
 void print_magic(const unsigned char *magic)
 {
+	int i;
+
 	printf("Magic: ");
-	for (int i = 0; i < EI_NIDENT; i++)
+	for (i = 0; i < EI_NIDENT; i++)
 	{
 		printf("%02x ", magic[i]);
 	}
@@ -30,7 +42,7 @@ void print_magic(const unsigned char *magic)
  * @field_name: name of the field
  * @value: value of the field
 */
-void print_field(const char *field_name, unsigned long long value)
+void print_field(const char *field_name, unsigned long value)
 {
 	printf("%-20s %llx\n", field_name, value);
 }
