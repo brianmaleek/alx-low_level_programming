@@ -1,3 +1,5 @@
+#include "hash_tables.h"
+
 /**
  * hash_djb2 - hash function implementing the djb2 algorithm.
  * @str: string to hash
