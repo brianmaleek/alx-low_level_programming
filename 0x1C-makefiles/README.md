@@ -1,6 +1,6 @@
 # 0x1C. C - Make- Files
 
-## C - Language By: Julien Barbier23 6:00 AM
+## C - Language By: Julien Barbier
 
 ## Resources
 
