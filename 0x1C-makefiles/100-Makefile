@@ -13,11 +13,11 @@ all: $(OBJ) m.h
 
 # deletes all files ending in ~
 clean:
-		$(RM) -f *~ $(NAME)
+		$(RM) *~ $(NAME)
 
 # deletes all object files
 oclean:
-		$(RM) -f $(OBJ)
+		$(RM) $(OBJ)
 
 # deletes all object files and the executable
 fclean: clean oclean
