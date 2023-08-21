@@ -1,0 +1,26 @@
+CC = gcc
+SRC = school.c main.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+CFLAGS = -Wall -Wextra -Werror -pedantic
+
+# .PHONY is used to tell make that these are not files
+.PHONY: all clean oclean fclean re
+
+# makes executable
+all: $(OBJ) m.h
+		$(CC) $(OBJ) -o $(NAME)
+
+# deletes all files ending in ~
+clean:
+		$(RM) -f *~ $(NAME)
+
+# deletes all object files
+oclean:
+		$(RM) -f $(OBJ)
+
+# deletes all object files and the executable
+fclean: clean oclean
+
+# deletes all object files and the executable, then recompiles
+re: oclean all
